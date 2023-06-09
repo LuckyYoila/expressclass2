@@ -1,3 +1,23 @@
-body{
-    background-color: blue;
+body {
+
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 20rem;
+}
+input {
+  padding: 3px
+}
+
+label {
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 5px;
 }

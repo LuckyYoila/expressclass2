@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>
-        My name is <%= name  %> <%= surname %> and I am <%= age %> years old
-    </h1>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div>
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Gender</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (users) { %> <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.email %></td>
+          </tr>
+          <% }) %> <% } %>
+        </tbody>
+      </table>
+    </div>
+    <form action="/register" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="firstname" />
 
-    <script src="/js/script.js"></script>
-</body>
+      <label for="surname">Surname</label>
+      <input type="text" name="surname" />
+
+      <label for="gender">Gender</label>
+      <input type="text" name="gender" />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+      <input type="submit" value="Register" />
+    </form>
+
+    <!-- <script src="/js/script.js"></script> -->
+  </body>
 </html>
