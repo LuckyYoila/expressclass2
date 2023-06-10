@@ -20,7 +20,8 @@
           </tr>
         </thead>
         <tbody>
-          <% if (users) { %> <% users.forEach(function(user) { %>
+          <% if (users) { %> 
+            <% users.forEach(function(user) { %>
           <tr>
             <td><%= user.id %></td>
             <td><%= user.first_name %></td>
@@ -28,7 +29,8 @@
             <td><%= user.gender %></td>
             <td><%= user.email %></td>
           </tr>
-          <% }) %> <% } %>
+            <% }) %> 
+          <% } %>
         </tbody>
       </table>
     </div>

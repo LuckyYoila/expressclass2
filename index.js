@@ -23,13 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/static"));
 
 app.get("/", async (req, res) => {
- db.query("SELECT * FROM users", async (err, result) => {
+ db.query("SELECT * FROM users", (err, result) => {
     if (err) throw err;
     // console.log("Users: ", result);
       
-    res.render("index", {
-      users: result,
-    });
+    res.render("index", { users: result, });
   });
 });
 
