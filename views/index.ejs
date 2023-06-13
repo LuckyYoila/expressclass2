@@ -17,17 +17,19 @@
             <th>Surname</th>
             <th>Gender</th>
             <th>Email</th>
+            <th>Date created</th>
           </tr>
         </thead>
         <tbody>
           <% if (users) { %> 
-            <% users.forEach(function(user) { %>
+            <% users.forEach((user)=>{ %>
           <tr>
             <td><%= user.id %></td>
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
             <td><%= user.gender %></td>
             <td><%= user.email %></td>
+            <td><%= user.creation_date %></td>
           </tr>
             <% }) %> 
           <% } %>

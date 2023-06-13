@@ -33,6 +33,7 @@ app.get("/", async (req, res) => {
 
 // where the submitted information is posted to from the form
 app.post("/register", (req, res) => {
+  console.log(req.body)
   const { firstname, surname, gender, email, password } = req.body;
   db.query(
     `insert into users(first_name, last_name, gender, email, password) values("${firstname}", "${surname}", "${gender}", "${email}", "${password}")`,
@@ -43,6 +44,25 @@ app.post("/register", (req, res) => {
 
   res.redirect("/");
 });
+
+app.get("/login", (req, res) => {
+  res.render("login", { error: false });
+})
+
+app.post("/login", (req, res)=> {
+  const {email, password} = req.body;
+
+  db.query(`SELECT * FROM users WHERE email = "${email}" AND password = "${password}"`, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+
+    if (result.length == 0){
+      console.log("No user")
+      return res.render("login",{error:true});
+    }
+    res.redirect("/");
+  })
+})
 
 app.get("/about", (req, res) => {
   res.render("about");
